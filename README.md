@@ -14,8 +14,7 @@ The Weather Type Classification project is designed to predict weather types bas
 - **Machine Learning:** scikit-learn (for model training and prediction)
 - **Data Handling:** pandas, numpy
 - **Data Visualization:** seaborn, matplotlib
-- **Outlier Detection:** Techniques such as Z-score and IQR for handling synthetic outliers in the dataset.
-
+  
 ## Dataset
 This project utilizes a synthetically generated dataset designed to simulate weather conditions. The dataset includes features like:
 - **Temperature:** Numeric values representing the temperature in degrees Celsius.
@@ -41,5 +40,9 @@ This project utilizes a synthetically generated dataset designed to simulate wea
 - **Web Interface:** Develop a web-based interface for user-friendly interactions with the model.
 - **Model Optimization:** Explore and implement advanced machine learning techniques to improve prediction accuracy.
 
+## Screenshots
+<img width="1440" alt="Screenshot 2024-08-13 at 5 49 57 PM" src="https://github.com/user-attachments/assets/b1f857da-7e0b-4304-9e91-5ddf3ea9e1f0">
+<img width="1440" alt="Screenshot 2024-08-13 at 5 50 03 PM" src="https://github.com/user-attachments/assets/01671a3f-0dac-4837-bbe1-c722773a0d47">
+
 ## Acknowledgments
-This project is intended for educational and experimental purposes. The dataset is synthetically generated and does not represent real-world weather data.
+This project is intended for educational and experimental purposes. The dataset is synthetically generated and does not represent real-world weather data. The dataset was obtained from: https://www.kaggle.com/datasets/nikhil7280/weather-type-classification/data
