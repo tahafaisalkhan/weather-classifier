@@ -4,16 +4,21 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load the machine learning model and LabelEncoders
 with open('model_and_encoders.pkl', 'rb') as file:
     loaded_data = pickle.load(file)
     model = loaded_data['model']
     label_encoders = loaded_data['label_encoders']
 
-# Access each LabelEncoder
 le_location = label_encoders['location']
 le_cloud_cover = label_encoders['cloud_cover']
 le_season = label_encoders['season']
+
+weather_mapping = {
+    0: 'Sunny',
+    1: 'Cloudy',
+    2: 'Rainy',
+    3: 'Snowy'
+}
 
 @app.route('/')
 def home():
@@ -25,31 +30,29 @@ def predict():
     print("Received data:", data)
 
     try:
-        # Encode categorical features
         encoded_features = [
             float(data['Temperature']),
             float(data['Humidity']),
             float(data['Wind Speed']),
             float(data['Precipitation']),
-            le_cloud_cover.transform([data['Cloud Cover']])[0].item(),  # Convert to Python type
+            le_cloud_cover.transform([data['Cloud Cover']])[0].item(),
             float(data['Atmospheric Pressure']),
             float(data['UV Index']),
-            le_season.transform([data['Season']])[0].item(),  # Convert to Python type
+            le_season.transform([data['Season']])[0].item(),
             float(data['Visibility']),
-            le_location.transform([data['Location']])[0].item()  # Convert to Python type
+            le_location.transform([data['Location']])[0].item()
         ]
 
         features_array = np.array(encoded_features).reshape(1, -1)
         print("Encoded features:", features_array)
         
-        # Predict
         prediction = model.predict(features_array)[0]
-        print("Prediction:", prediction)
+        print("Prediction (numeric):", prediction)
 
-        # Convert NumPy int64 to standard Python int
-        prediction = int(prediction)
+        predicted_weather = weather_mapping.get(int(prediction), 'Unknown')
+        print("Prediction (weather type):", predicted_weather)
         
-        return jsonify({'prediction': prediction})
+        return jsonify({'prediction': predicted_weather})
     except KeyError as e:
         print(f'KeyError: {str(e)}')
         return jsonify({'error': f'Missing key in input data: {str(e)}'}), 400

@@ -23,9 +23,12 @@ document.getElementById('prediction-form').addEventListener('submit', function(e
     })
     .then(response => response.json())
     .then(data => {
-        if (data.error) {
+        if (data.error) 
+        {
             document.getElementById('result').textContent = `Error: ${data.error}`;
-        } else {
+        } 
+        else 
+        {
             document.getElementById('result').textContent = `Predicted Weather Type: ${data.prediction}`;
         }
     })
