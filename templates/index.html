@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Prediction</h1>
+        <form id="prediction-form">
+            <label for="temperature">Temperature (°C):</label>
+            <input type="number" id="temperature" name="Temperature" step="any" required>
+
+            <label for="humidity">Humidity (%):</label>
+            <input type="number" id="humidity" name="Humidity" step="any" required>
+
+            <label for="wind_speed">Wind Speed (km/h):</label>
+            <input type="number" id="wind_speed" name="Wind Speed" step="any" required>
+
+            <label for="precipitation">Precipitation (%):</label>
+            <input type="number" id="precipitation" name="Precipitation" step="any" required>
+
+            <label for="cloud_cover">Cloud Cover:</label>
+            <select id="cloud_cover" name="Cloud Cover" required>
+                <option value="clear">Clear</option>
+                <option value="partly cloudy">Partly Cloudy</option>
+                <option value="overcast">Overcast</option>
+            </select>
+
+            <label for="pressure">Atmospheric Pressure (hPa):</label>
+            <input type="number" id="pressure" name="Atmospheric Pressure" step="any" required>
+
+            <label for="uv_index">UV Index:</label>
+            <input type="number" id="uv_index" name="UV Index" step="any" required>
+
+            <label for="season">Season:</label>
+            <select id="season" name="Season" required>
+                <option value="Winter">Winter</option>
+                <option value="Spring">Spring</option>
+                <option value="Summer">Summer</option>
+                <option value="Autumn">Autumn</option>
+            </select>
+
+            <label for="visibility">Visibility (km):</label>
+            <input type="number" id="visibility" name="Visibility" step="any" required>
+
+            <label for="location">Location:</label>
+            <select id="location" name="Location" required>
+                <option value="inland">Inland</option>
+                <option value="mountain">Mountain</option>
+                <option value="coastal">Coastal</option>
+            </select>
+
+            <button type="submit">Predict Weather Type</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
